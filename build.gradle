@@ -31,12 +31,14 @@ allprojects {
 
 project(":desktop") {
     apply plugin: "java"
+    apply plugin: "war"
 
 
     dependencies {
         compile project(":core")
         compile "com.badlogicgames.gdx:gdx-backend-lwjgl:$gdxVersion"
         compile "com.badlogicgames.gdx:gdx-platform:$gdxVersion:natives-desktop"
+        providedCompile "org.projectlombok:lombok:1.16.6"
     }
 }
 
@@ -51,15 +53,18 @@ project(":android") {
         natives "com.badlogicgames.gdx:gdx-platform:$gdxVersion:natives-armeabi"
         natives "com.badlogicgames.gdx:gdx-platform:$gdxVersion:natives-armeabi-v7a"
         natives "com.badlogicgames.gdx:gdx-platform:$gdxVersion:natives-x86"
+        provided "org.projectlombok:lombok:1.16.6"
     }
 }
 
 project(":core") {
     apply plugin: "java"
+    apply plugin: "war"
 
 
     dependencies {
         compile "com.badlogicgames.gdx:gdx:$gdxVersion"
+        providedCompile "org.projectlombok:lombok:1.16.6"
     }
 }
 
